@@ -28,15 +28,10 @@ listint_t *insert_node(listint_t **head, int number)
 		return (new);
 	}
 
-	while (curr && curr->next)
-	{
-		if (new->n < curr->next->n)
-		{
-			new->next = curr->next;
-			curr->next = new;
-			return (new);
-		}
+	while (curr && curr->next && new->n > curr->next->n)
 		curr = curr->next;
-	}
-	return (NULL);
+
+	new->next = curr->next;
+	curr->next = new;
+	return (new);
 }
