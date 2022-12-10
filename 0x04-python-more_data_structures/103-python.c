@@ -42,7 +42,7 @@ void print_python_bytes(PyObject *p)
 	char *str;
 
 	size = b->ob_base.ob_size;
-	bytes_to_print = size <= 10 ? size : 10;
+	bytes_to_print = size < 10 ? size + 1 : 10;
 	type = b->ob_base.ob_base.ob_type->tp_name;
 	str = b->ob_sval;
 
