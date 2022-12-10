@@ -46,13 +46,12 @@ void print_python_bytes(PyObject *p)
 	type = b->ob_base.ob_base.ob_type->tp_name;
 	str = b->ob_sval;
 
+	printf("[.] bytes object info\n");
 	if (strcmp(type, "bytes") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-
-	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
 	printf("  first %ld bytes:", bytes_to_print);
