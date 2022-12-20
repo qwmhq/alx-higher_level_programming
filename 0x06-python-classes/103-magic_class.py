@@ -8,12 +8,12 @@ import math
 class MagicClass:
     """ MagicClass """
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """
         initialize MagicClass instance
 
         Args:
-            radius (int, float): radius
+            radius (int or float): radius
         """
 
         self.__radius = 0
