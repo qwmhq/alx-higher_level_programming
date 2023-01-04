@@ -1,0 +1,131 @@
+The ``2-matrix_divided`` module
+===============================
+
+Using ``matrix_divided``
+------------------------
+
+check for the module docstring
+	>>> mdoc = __import__("2-matrix_divided").__doc__
+	>>> len(mdoc) > 1
+	True
+
+import the function ``matrix_divided``
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+check for the function's docstring
+	>>> fdoc = matrix_divided.__doc__
+	>>> len(fdoc) > 1
+	True
+
+test for correct inputs
+
+
+test for a matrix
+	>>> matrix_divided(12, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([1, 2, 3, 4, 5], 32)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([0, 'a', 2], 32)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix = [
+	...     [1, 2, 3],
+	...	    ['a', 'b', 'c']
+	... ]
+	>>> matrix_divided(matrix, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix = [
+	...	    ['a', 'b', 'c'],
+	...     [1, 2, 3]
+	... ]
+	>>> matrix_divided(matrix, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix = [
+	...     [1, 2, 3],
+	...	    "hello"
+	... ]
+	>>> matrix_divided(matrix, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+test that Each row of the matrix is of the same size
+
+	>>> matrix = [
+	...     [1, 2],
+	...     [3, 4, 5]
+	... ]
+	>>> matrix_divided(matrix, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+	>>> matrix = [
+	...     [1, 2, 3],
+	...     [4, 5],
+	...     [6, 7, 8]
+	... ]
+	>>> matrix_divided(matrix, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+	>>> matrix = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8]
+	... ]
+	>>> matrix_divided(matrix, 32)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+
+test that the divisor is a number
+	>>> matrix = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_divided(matrix, 'a')
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+	>>> matrix_divided(matrix, "hello")
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+	>>> matrix_divided(matrix, [1, 2])
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+
+test that the divisor is not zero
+	>>> matrix_divided(matrix, 0)
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+	
+
+test for correct output
+	>>> matrix_divided(matrix, 2)
+	[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+	>>> matrix_divided(matrix, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]

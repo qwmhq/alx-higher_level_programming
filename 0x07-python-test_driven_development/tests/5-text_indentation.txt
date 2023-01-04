@@ -1,0 +1,45 @@
+The ``5-text_indentation`` module
+=================================
+
+Using ``text_indentation``
+--------------------------
+
+check the module docstring:
+	>>> mdoc = __import__("5-text_indentation").__doc__
+	>>> len(mdoc) > 1
+	True
+
+import the function ``text_indentation``:
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+check the function docstring
+	>>> fdoc = text_indentation.__doc__
+	>>> len(fdoc) > 1
+	True
+
+test with a nonstring value
+	>>> text_indentation(10000)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+	>>> text_indentation(['h', 'e', 'l', 'l', 'o', '.'])
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+
+test output
+	>>> text = "Hello. What is your name?"
+	>>> text_indentation(text)
+	Hello.
+	<BLANKLINE>
+	 What is your name?
+	<BLANKLINE>
+
+	>>> text = "There are two digits in base two: 1 and 0."
+	>>> text_indentation(text)
+	There are two digits in base two:
+	<BLANKLINE>
+	 1 and 0.
+	<BLANKLINE>

@@ -1,0 +1,245 @@
+The ``100-matrix_mul`` module
+=============================
+
+Using ``matrix_mul``
+--------------------
+
+import the module:
+	>>> module = __import__("100-matrix_mul")
+
+check the module docstring:
+	>>> len(module.__doc__) > 1
+	True
+
+import the function ``matrix_mul``:
+	>>> matrix_mul = module.matrix_mul
+
+check the function docstring:
+	>>> len(matrix_mul.__doc__) > 1
+	True
+
+
+check for types:
+	>>> matrix_a = 12
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6]
+	... ]
+	>>> matrix_b = 12
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     "hello"
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list of lists
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9],
+	...     "hello"
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list of lists
+
+	>>> matrix_a = []
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+	>>> matrix_a = [[]]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = []
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = [[]]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     ['7', '8', '9']
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: m_b should contain only integers or floats
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     ['7', '8', '9']
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: m_a should contain only integers or floats
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_a must be of the same size
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_b must be of the same size
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	ValueError: m_a and m_b can't be multiplied
+
+	>>> matrix_a = [
+	...     [1, 2],
+	...     [3, 4],
+	...     [5, 6]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	Traceback (most recent call last):
+	...
+	ValueError: m_a and m_b can't be multiplied
+
+
+Test for correct outputs
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	[[30, 36, 42], [66, 81, 96], [102, 126, 150]]
+
+	>>> matrix_a = [
+	...     [1, 2, 3],
+	...     [4, 5, 6],
+	...     [7, 8, 9]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2],
+	...     [3, 4],
+	...     [5, 6]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	[[22, 28], [49, 64], [76, 100]]
+
+	>>> matrix_a = [
+	...     [1, 2],
+	...     [3, 4],
+	...     [5, 6]
+	... ]
+	>>> matrix_b = [
+	...     [1, 2, 3],
+	...     [4, 5, 6]
+	... ]
+	>>> matrix_mul(matrix_a, matrix_b)
+	[[9, 12, 15], [19, 26, 33], [29, 40, 51]]

@@ -1,0 +1,63 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+Check for the module docstring
+	>>> m = __import__("0-add_integer").__doc__
+	>>> len(m) > 1
+	True
+
+Import add_integer from its module:
+	>>> add_integer = __import__("0-add_integer").add_integer
+
+Check for add_integer's docstring
+	>>> f = add_integer.__doc__
+	>>> len(f) > 1
+	True
+
+Test add_integer
+
+Test for correct output
+	>>> add_integer(1, 2)
+	3
+	>>> add_integer(10, 20)
+	30
+	>>> add_integer(5000, 3000)
+	8000
+	>>> add_integer(-50, 100)
+	50
+	>>> add_integer(100, -400)
+	-300
+
+add an integer and a float, and vice-versa
+	>>> add_integer(1.5, 3)
+	4
+	>>> add_integer(3, 4.6)
+	7
+
+add two floats
+	>>> add_integer(1.3, 7.23)
+	8
+
+Test for wrong inputs
+	>>> add_integer('a', 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+	
+	>>> add_integer(1, 'b')
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer([2], 23)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(12, [12])
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
