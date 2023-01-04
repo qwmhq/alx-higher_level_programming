@@ -12,7 +12,7 @@ def matrix_divided(matrix, div):
             or not all(
                 [all(type(j) in [float, int] for j in i) for i in matrix])):
         raise TypeError("matrix must be a matrix \
-                (list of lists) of integers/floats")
+(list of lists) of integers/floats")
 
     # check that the rows in the matrix are of equal length
     size = len(matrix[0])
