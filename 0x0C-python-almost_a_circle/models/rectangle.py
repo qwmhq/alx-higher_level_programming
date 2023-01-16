@@ -16,6 +16,11 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        """ get string representation of a Rectangle object """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
+                                                       self.width, self.height)
+
     @property
     def width(self):
         """ get the width of a Rectangle object """
