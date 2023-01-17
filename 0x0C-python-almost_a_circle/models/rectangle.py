@@ -87,3 +87,13 @@ class Rectangle(Base):
         s += self.y * "\n"
         s += "{}{}\n".format(self.x * " ", "#" * self.width) * self.height
         print(s, end="")
+
+    def update(self, *args, **kwargs):
+        """ update attributes of a Rectangle object """
+        if len(args) > 0:
+            attributes = ["id", "width", "height", "x", "y"]
+            for index, value in enumerate(args):
+                setattr(self, attributes[index], value)
+        elif kwargs is not None:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
