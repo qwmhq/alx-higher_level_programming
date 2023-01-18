@@ -9,6 +9,12 @@ create a new instance
 	>>> my_list = MyList()
 	>>> print(my_list)
 	[]
+
+check print_sorted with empty list
+	>>> my_list.print_sorted()
+	[]
+
+append items
 	>>> my_list.append(5)
 	>>> my_list.append(3)
 	>>> my_list.append(4)
@@ -16,5 +22,16 @@ create a new instance
 	>>> my_list.append(2)
 	>>> print(my_list)
 	[5, 3, 4, 1, 2]
+
+check that print_sorted works correctly
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5]
+
+append negative numbers
+	>>> my_list.append(-3)
+	>>> my_list.append(-1)
+	>>> my_list.append(-2)
+
+check print_sorted with negative numbers
+	>>> my_list.print_sorted()
+	[-3, -2, -1, 1, 2, 3, 4, 5]
