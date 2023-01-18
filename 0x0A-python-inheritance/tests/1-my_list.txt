@@ -27,6 +27,10 @@ check that print_sorted works correctly
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5]
 
+check that the original list is intact after using print_sorted
+	>>> print(my_list)
+	[5, 3, 4, 1, 2]
+
 append negative numbers
 	>>> my_list.append(-3)
 	>>> my_list.append(-1)
