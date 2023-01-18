@@ -1,0 +1,20 @@
+The ``1-my_list`` module
+========================
+
+
+import the MyList class from the module
+	>>> MyList = __import__("1-my_list").MyList
+
+create a new instance
+	>>> my_list = MyList()
+	>>> print(my_list)
+	[]
+	>>> my_list.append(5)
+	>>> my_list.append(3)
+	>>> my_list.append(4)
+	>>> my_list.append(1)
+	>>> my_list.append(2)
+	>>> print(my_list)
+	[5, 3, 4, 1, 2]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
