@@ -2,8 +2,8 @@
 """ 100-my_int """
 
 
-def MyInt(int):
-    """ custom int class """
+class MyInt(int):
+    """ custom int class with inverted == and != operators"""
 
     def __eq__(self, other):
         """ equals operator overload """
