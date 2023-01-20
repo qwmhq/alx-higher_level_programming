@@ -28,3 +28,11 @@ class Base():
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ write the JSON string representation of list_objs to a file """
+        if not type(list_objs) is list or not all([isinstance(x, cls) for x in list_objs]):
+            raise TypeError("list_objs must be a list of instances who inherit from Base")
+        with open("{}.json".format(cls.__name__), 'w', encoding="utf-8") as f:
+            f.write(cls.to_json_string([x.to_dictionary() for x in list_objs]))
