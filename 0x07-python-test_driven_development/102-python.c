@@ -16,12 +16,12 @@ void print_python_string(PyObject *p)
 	printf("[.] string object info\n");
 	if (strcmp(type, "str") != 0)
 	{
-		printf("  [ERROR] Invalid String Object");
+		printf("  [ERROR] Invalid String Object\n");
 		return;
 	}
-	printf("type: %s%s\n",
+	printf("  type: %s%s\n",
 			compact ? "compact " : "",
 			ascii ? "ascii" : "unicode object");
-	printf("length: %ld\n", length);
-	printf("value: %s\n", PyUnicode_AsUTF8(p));
+	printf("  length: %ld\n", length);
+	printf("  value: %s\n", PyUnicode_AsUTF8(p));
 }
