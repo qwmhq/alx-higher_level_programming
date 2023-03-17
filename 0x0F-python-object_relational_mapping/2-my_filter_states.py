@@ -16,11 +16,12 @@ if __name__ == '__main__':
                          port=3306,
                          user=user,
                          passwd=passwd,
-                         db=database)
+                         db=database,
+                         charset="utf8")
     cur = db.cursor()
     cur.execute("SELECT *\
                 FROM states\
-                WHERE name='{:s}'\
+                WHERE BINARY name='{:s}'\
                 ORDER BY states.id ASC;".format(state))
     for row in cur.fetchall():
         print(row)
